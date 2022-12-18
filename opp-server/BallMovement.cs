@@ -12,6 +12,7 @@ using System.Timers;
 
 namespace opp_server
 {
+    // Class that runs a loop on a separate thread that calculates ball movement after kick
     public class BallMovement
     {
         public Ball Ball { get; set; }

@@ -16,6 +16,7 @@ using opp_library;
 
 namespace opp_server.Hubs
 {
+    // Main class for requests and responses
     public class GameHub : Hub
     {
         private GameState _gameState;
@@ -31,11 +32,13 @@ namespace opp_server.Hubs
             this._field = field;
         }
 
+        // Updates window size when client window is resized
         public async Task UpdateWindowSizeRequest(int width, int height)
         {
             await Clients.AllExcept(Context.ConnectionId).SendAsync("UpdateWindowSizeResponse", width, height);
         }
 
+        // Updates playing field when client window is resized
         public async Task UpdateFieldSizeRequest(int width, int height)
         {
             this._field.Width = width;
@@ -47,6 +50,7 @@ namespace opp_server.Hubs
             //await Clients.All.SendAsync("UpdateFieldSizeResponse", _field);
         }
 
+        // Updates player position when W/A/S/D is pressed
         public async Task UpdatePlayerPositionRequest(string playerID, PlayerInput playerInput)
         {
             Player player = _gameState.GetPlayerById(playerID);
@@ -58,6 +62,7 @@ namespace opp_server.Hubs
             //await Clients.Clients(Context.ConnectionId).SendAsync("UpdatePlayerPositionResponse", player.Position.ToString());
         }
 
+        // Moves ball to middle of playing field when client window is resized
         public async Task UpdateBallPositionRequest()
         {
             Ball ball = _gameState.Ball;
@@ -66,6 +71,7 @@ namespace opp_server.Hubs
             //await Clients.Clients(Context.ConnectionId).SendAsync("UpdateBallPositionResponse");
         }
 
+        // Main object with data that is constantly sent between server-client
         public async Task GameStateRequest()
         {
             GameState gameStateClone = _gameState.Clone();
@@ -74,6 +80,7 @@ namespace opp_server.Hubs
             await Clients.Clients(Context.ConnectionId).SendAsync("GameStateResponse", gameStateJSON);
         }
 
+        // Updates ball position after player pressed K key to kick
         public async Task KickBallRequest(string playerID)
         {
             Player player = _gameState.GetPlayerById(playerID);
@@ -82,6 +89,7 @@ namespace opp_server.Hubs
             //await Clients.Client(Context.ConnectionId).SendAsync("KickBallResponse");
         }
 
+        // Request to create or join certain colored team (currently red/blue depending on button pressed in client)
         public async Task JoinTeamRequest(string playerID, string colorName)
         {
             Color color = Color.FromName(colorName);

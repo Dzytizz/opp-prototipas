@@ -26,6 +26,7 @@ namespace opp_library
             this.Speed = speed;
         }
 
+        // Moves player according to keyboard input and detects collisions with outer walls
         public void Move(PlayerInput playerInput, Field field)
         {
             Vector2 newPosition = this.Position;

@@ -25,6 +25,7 @@ namespace opp_library
             this.Height = height;
         }
 
+        // Returns which wall the player is colliding with
         public Walls HitWalls(Player player)
         {
             Walls walls = Walls.None;
@@ -52,6 +53,7 @@ namespace opp_library
             return walls;
         }
 
+        // Returns which wall the given round object is colliding with
         public Walls HitWalls(Vector2 objectPosition, int radius)
         {
             Walls walls = Walls.None;

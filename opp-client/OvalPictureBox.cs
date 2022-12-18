@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 namespace opp_client
 {
+    // Helper class to create round sprites instead of square
     public class OvalPictureBox : PictureBox
     {
         public OvalPictureBox()

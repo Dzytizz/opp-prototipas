@@ -23,6 +23,7 @@ namespace opp_server
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    // change 'localhost' to 'IPv4 IP' for local multiplayer 
                     webBuilder.UseUrls("https://localhost:44330");
                 });
     }

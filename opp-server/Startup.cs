@@ -18,6 +18,7 @@ namespace opp_server
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add singletons if needed here
             services.AddSingleton(opt => new GameState());
             services.AddSingleton(opt => new BallMovement());
             services.AddSingleton(opt => new Field());
@@ -28,7 +29,6 @@ namespace opp_server
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseRouting();
-
             app.UseEndpoints(endpoints => { endpoints.MapHub<GameHub>("/gamehub"); });
         }
     }

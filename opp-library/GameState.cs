@@ -12,6 +12,7 @@ using System.Numerics;
 
 namespace opp_library
 {
+    // Main data class for communication between server-client constantly
     public class GameState
     {
         public List<Team> Teams { get; set; }
@@ -67,6 +68,7 @@ namespace opp_library
             return -1;
         }
 
+        // Clone is needed so that GameState instance doesn't change mid transmission between server-client
         public GameState Clone()
         {
             GameState newGameState = new GameState();

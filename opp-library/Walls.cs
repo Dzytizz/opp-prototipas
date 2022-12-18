@@ -10,6 +10,7 @@ using System;
 
 namespace opp_library
 {
+    // enum with binary flags (0/1/2/4/8)
     [Flags]
     public enum Walls
     {
