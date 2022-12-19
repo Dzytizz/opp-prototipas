@@ -8,8 +8,8 @@ Sistemos paleidimas:
 3. Pasileisti klientą (opp-client) (VS2022: "Debug" -> "Start Without Debugging").  
 
 Lokalus multiplayer:  
-1. opp-server "Program.cs" faile pakeisti 27 eilutėje iš "localhost" į IPv4 IP (Command Prompt -> `ipconfig`)  
-2. opp-client "ClientWindow.cs" 35 eilutėje pakeisti iš "localhost" į serveryje įvestą IPv4 IP.  
+1. opp-server "Program.cs" faile pakeisti 27 eilutėje iš "https://localhost" į "http://IPv4 IP" (IPv4 galima pamatyti: Command Prompt -> `ipconfig`)  
+2. opp-client "ClientWindow.cs" 35 eilutėje pakeisti iš "localhost" į serveryje įvestą adresą.  
 
 Valdymas:  
 W/A/S/D - judėjimas  
